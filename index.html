@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Joke Engine</title>
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="container">
-        
+      <h1>The Joke Engine</h1>
+      <div class="input-container">
+        <input
+          type="text"
+          id="joke-keyword"
+          placeholder="Enter a keyword for your joke"
+        />
+        <button id="generate-joke-btn">Generate Joke</button>
+      </div>
+      <div id="joke-container" class="hidden">
+        <p id="joke-no1"></p>
+        <p id="joke-no2"></p>
+        <p id="joke-no3"></p>
+      </div>
+      <p id="error-message" class="hidden">
+        like fr bruh! enter a real word u dumbass ! 💀
+      </p>
     </div>
-</body>
+
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -76,6 +76,5 @@ document.addEventListener("DOMContentLoaded", function () {
   function showError(message) {
     jokeContainer.classList.add("hidden");
     errorMessage.classList.remove("hidden");
-    alert(message);
   }
 });

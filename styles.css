@@ -16,6 +16,10 @@ body{
     height: 100vh;
 }
 
+p{
+    margin: 10px;
+}
+
 .container{
     background-color: #1e1e1e;
     padding: 20px;

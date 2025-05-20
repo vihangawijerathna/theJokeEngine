@@ -2,7 +2,7 @@
 
 A simple web application that fetches random jokes based on user-provided keywords using the FreeAPI.app jokes API.
 
-![The Joke Engine](https://github.com/yourusername/theJokeEngine/raw/main/screenshot.png)
+![The Joke Engine](https://github.com/vihangawijerathna/theJokeEngine/raw/main/screenshot.png)
 
 ## Features
 * Clean, dark-themed UI

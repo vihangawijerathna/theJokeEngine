@@ -1,79 +1,209 @@
 /* styles.css */
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    font-family: 'Poppins', sans-serif;
-    background-color: #121212;
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+:root {
+  /* Fun and playful color palette */
+  --bg-color: #f8c9cb; /* Light pink background */
+  --container-color: #ffffff; /* White container */
+  --text-color: #333333; /* Dark gray text for readability */
+  --button-color: #ff6b6b; /* Coral red for buttons */
+  --button-hover: #ff8e8e; /* Lighter coral for hover */
+  --accent-color: #4ecdc4; /* Turquoise accent */
+  --error-color: #ff0000; /* Red for errors */
 }
 
-p{
-    margin: 20px;
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-.container{
-    background-color: #1e1e1e;
-    padding: 20px;
-    border-radius: 10px;
-    width: 400px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    text-align: center;
+p {
+  margin: 20px;
+  line-height: 1.5;
 }
 
-h1{
-    margin-bottom: 20px;
+.container {
+  background-color: var(--container-color);
+  padding: 30px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  border: 3px solid var(--accent-color);
+}
+
+h1 {
+  margin-bottom: 25px;
+  font-size: 28px;
+  color: var(--button-color);
+  position: relative;
+  display: inline-block;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 70%;
+  height: 3px;
+  background-color: var(--accent-color);
+  position: absolute;
+  bottom: -8px;
+  left: 15%;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+input[type="text"] {
+  width: 70%;
+  padding: 12px;
+  background-color: #f5f5f5;
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  color: var(--text-color);
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: var(--button-color);
+}
+
+button {
+  width: 30%;
+  padding: 12px;
+  background-color: var(--button-color);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+#joke-container {
+  margin-top: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#joke-container p {
+  position: relative;
+  padding: 15px;
+  border-bottom: 1px dashed var(--accent-color);
+}
+
+#joke-container p:last-child {
+  border-bottom: none;
+}
+
+.hidden {
+  display: none;
+}
+
+#error-message {
+  color: var(--error-color);
+  margin-top: 20px;
+  font-weight: bold;
+  background-color: rgba(255, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 20px 15px;
+    width: 90%;
+  }
+
+  h1 {
     font-size: 24px;
+  }
+
+  .input-container {
+    flex-direction: column;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 100%;
+  }
 }
 
-.input-container{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-input[type="text"]{
-    width: 70%;
+@media screen and (max-width: 400px) {
+  body {
     padding: 10px;
-    background-color: #333333;
-    border: none;
-    border-radius: 5px;
-    color: #ffffff;
-    outline: none;
+  }
+
+  .container {
+    padding: 15px 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  p {
+    margin: 15px 5px;
+    font-size: 14px;
+  }
 }
 
-button{
-    width: 25%;
-    padding: 10px;
-    background-color: #6200EA;
-    border: none;
-    border-radius: 5px;
-    color: #ffffff;
-    cursor: pointer;
-    transition: background-color 0.3s;
+/* Animation for jokes appearing */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-button:hover{
-    background-color: #3700B3;
+#joke-container.hidden {
+  display: none;
 }
 
-#joke-container{
-    margin-top: 20px;
+#joke-container:not(.hidden) p {
+  animation: fadeIn 0.5s ease-out forwards;
 }
 
-.hidden{
-    display: none;
+#joke-container:not(.hidden) p:nth-child(2) {
+  animation-delay: 0.2s;
 }
 
-#error-message{
-    color: red;
-    margin-top: 20px;
+#joke-container:not(.hidden) p:nth-child(3) {
+  animation-delay: 0.4s;
 }
